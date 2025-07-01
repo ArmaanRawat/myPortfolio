@@ -34,14 +34,23 @@ const Hero = () => {
 };
 
 function Rig() {
-  return useFrame((state, delta) => {
-    easing.damp3(
-      state.camera.position,
-      [state.mouse.x / 10, 1 + state.mouse.y / 10, 3],
-      0.5,
-      delta
-    );
+  const isMobile = useMediaQuery({ maxWidth: 853 });
+  useFrame((state, delta) => {
+    if (isMobile) {
+      // Set a static camera position for mobile
+      state.camera.position.set(0, 1, 3);
+      state.camera.lookAt(0, 1, 0);
+    } else {
+      // Animate camera based on mouse for desktop
+      easing.damp3(
+        state.camera.position,
+        [state.pointer.x / 10, 1 + state.pointer.y / 10, 3],
+        0.5,
+        delta
+      );
+    }
   });
+  return null;
 }
 
 export default Hero;
