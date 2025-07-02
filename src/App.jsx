@@ -4,6 +4,7 @@ import Navbar from "./sections/Navbar";
 import Projects from "./sections/Projects";
 import Coding from "./sections/Coding";
 import Contact from "./sections/Contact";
+import Footer from "./sections/Footer";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Projects />
       <Coding />
       <Contact />
+      <Footer />
     </div>
   );
 }

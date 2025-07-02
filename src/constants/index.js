@@ -125,5 +125,22 @@ export const myProjects = [
       { id: 4, name: "TailwindCss", path: "/assets/logos/tailwindcss.svg" },
     ],
   },
-  
+];
+
+export const mySocials = [
+  {
+    name: "WhatsApp",
+    href: "https://wa.me/+917983573326",
+    icon: "/assets/socials/whatsApp.svg",
+  },
+  {
+    name: "Linkedin",
+    href: "https://www.linkedin.com/in/armaan-rawat0055/",
+    icon: "/assets/socials/linkedIn.svg",
+  },
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/armaan_3590?igsh=eXU0cDZybTBvcWVp",
+    icon: "/assets/socials/instagram.svg",
+  },
 ];

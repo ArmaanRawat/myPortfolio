@@ -51,7 +51,9 @@ const Contact = () => {
     }
   };
   return (
-    <section className="relative flex items-center c-space section-spacing">
+    <section
+      id="contact"
+      className="relative flex items-center c-space section-spacing">
       <Particles
         className="absolute inset-0 -z-50"
         quantity={100}
@@ -64,7 +66,9 @@ const Contact = () => {
         <div className="flex flex-col items-start w-full gap-5 mb-10">
           <h2 className="text-heading">Let's Talk</h2>
           <p className="font-normal text-neutral-400">
-            Got an idea or challenge? Let's team up and make it happen. I'm open to collaborations, freelance work, and new opportunities — drop me a message anytime.
+            Got an idea or challenge? Let's team up and make it happen. I'm open
+            to collaborations, freelance work, and new opportunities — drop me a
+            message anytime.
           </p>
         </div>
         <form className="w-full" onSubmit={handleSubmit}>
@@ -119,8 +123,7 @@ const Contact = () => {
           </div>
           <button
             type="submit"
-            className="w-full px-1 py-3 text-lg text-center rounded-md cursor-pointer bg-radial from-lavender to-royal hover-animation"
-          >
+            className="w-full px-1 py-3 text-lg text-center rounded-md cursor-pointer bg-radial from-lavender to-royal hover-animation">
             {!isLoading ? "Send" : "Sending..."}
           </button>
         </form>
