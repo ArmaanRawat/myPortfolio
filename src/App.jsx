@@ -3,6 +3,7 @@ import Hero from "./sections/Hero";
 import Navbar from "./sections/Navbar";
 import Projects from "./sections/Projects";
 import Coding from "./sections/Coding";
+import Contact from "./sections/Contact";
 
 function App() {
   return (
@@ -12,9 +13,7 @@ function App() {
       <About />
       <Projects />
       <Coding />
-      <section className="min-h-screen" />
-      <section className="min-h-screen" />
-      <section className="min-h-screen" />
+      <Contact />
     </div>
   );
 }

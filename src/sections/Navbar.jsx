@@ -5,7 +5,7 @@ function Navigation() {
   return (
     <ul className="nav-ul">
       <li className="nav-li">
-        <a href="#home" className="nav-link">
+        <a href="#hero" className="nav-link">
           Home
         </a>
       </li>
@@ -15,8 +15,8 @@ function Navigation() {
         </a>
       </li>
       <li className="nav-li">
-        <a href="#work" className="nav-link">
-          Work
+        <a href="#coding" className="nav-link">
+          Coding
         </a>
       </li>
       <li className="nav-li">
@@ -54,7 +54,8 @@ function Navbar() {
         </div>
       </div>
       {isOpen && (
-        <motion.div className="block overflow-hidden text-center sm:hidden" 
+        <motion.div
+          className="block overflow-hidden text-center sm:hidden"
           initial={{ opacity: 0, x: -10 }}
           animate={{ opacity: 1, x: 0 }}
           style={{ maxHeight: "100vh" }}
