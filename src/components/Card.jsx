@@ -3,7 +3,7 @@ const Card = ({ style, text, image, containerRef }) => {
   return image && !text ? (
     <motion.img
       className="absolute w-15 cursor-grab"
-      src={image}
+      src={image.startsWith("/") ? image : "/" + image}
       style={style}
       whileHover={{ scale: 1.05 }}
       drag
@@ -17,8 +17,7 @@ const Card = ({ style, text, image, containerRef }) => {
       whileHover={{ scale: 1.05 }}
       drag
       dragConstraints={containerRef}
-      dragElastic={1}
-    >
+      dragElastic={1}>
       {text}
     </motion.div>
   );

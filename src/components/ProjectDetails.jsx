@@ -18,7 +18,7 @@ const ProjectDetails = ({
         <button
           onClick={closeModal}
           className="absolute p-2 rounded-sm top-5 right-5 bg-midnight hover:bg-gray-500">
-          <img src="assets/close.svg" className="w-6 h-6" />
+          <img src="/assets/close.svg" className="w-6 h-6" />
         </button>
         <img src={image} alt={title} className="w-full rounded-t-2xl" />
         <div className="p-5">
@@ -32,7 +32,7 @@ const ProjectDetails = ({
               {tags.map((tag) => (
                 <img
                   key={tag.id}
-                  src={tag.path}
+                  src={tag.path.startsWith('/') ? tag.path : '/' + tag.path}
                   alt={tag.name}
                   className="rounded-lg size-10 hover-animation"
                 />
@@ -45,7 +45,7 @@ const ProjectDetails = ({
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1 font-medium cursor-pointer hover-animation">
                 View Project
-                <img src="assets/arrow-up.svg" className="size-4" />
+                <img src="/assets/arrow-up.svg" className="size-4" />
               </a>
               <a
                 href={gitLink}
@@ -53,7 +53,7 @@ const ProjectDetails = ({
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1 font-medium cursor-pointer hover-animation">
                 Visit GitHub
-                <img src="assets/arrow-up.svg" className="size-4" />
+                <img src="/assets/arrow-up.svg" className="size-4" />
               </a>
             </div>
           </div>
