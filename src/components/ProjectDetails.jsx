@@ -6,6 +6,7 @@ const ProjectDetails = ({
   image,
   tags,
   href,
+  gitLink,
   closeModal,
 }) => {
   return (
@@ -13,12 +14,10 @@ const ProjectDetails = ({
       <motion.div
         className="relative max-w-2xl border shadow-sm rounded-2xl bg-gradient-to-l from-midnight to-navy border-white/10"
         initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 1 }}
-      >
+        animate={{ opacity: 1, scale: 1 }}>
         <button
           onClick={closeModal}
-          className="absolute p-2 rounded-sm top-5 right-5 bg-midnight hover:bg-gray-500"
-        >
+          className="absolute p-2 rounded-sm top-5 right-5 bg-midnight hover:bg-gray-500">
           <img src="assets/close.svg" className="w-6 h-6" />
         </button>
         <img src={image} alt={title} className="w-full rounded-t-2xl" />
@@ -39,10 +38,24 @@ const ProjectDetails = ({
                 />
               ))}
             </div>
-            <a className="inline-flex items-center gap-1 font-medium cursor-pointer hover-animation">
-              View Project{" "}
-              <img src="assets/arrow-up.svg" className="size-4" href={href} />
-            </a>
+            <div className="flex gap-1.5">
+              <a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 font-medium cursor-pointer hover-animation">
+                View Project
+                <img src="assets/arrow-up.svg" className="size-4" />
+              </a>
+              <a
+                href={gitLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 font-medium cursor-pointer hover-animation">
+                Visit GitHub
+                <img src="assets/arrow-up.svg" className="size-4" />
+              </a>
+            </div>
           </div>
         </div>
       </motion.div>
