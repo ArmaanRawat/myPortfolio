@@ -1,23 +1,22 @@
-import About from "./sections/About"
-import Hero from "./sections/Hero"
-import Navbar from "./sections/Navbar"
-import Projects from "./sections/Projects"
-
+import About from "./sections/About";
+import Hero from "./sections/Hero";
+import Navbar from "./sections/Navbar";
+import Projects from "./sections/Projects";
+import Coding from "./sections/Coding";
 
 function App() {
-
   return (
     <div className="container mx-auto max-w-7xl">
       <Navbar />
       <Hero />
       <About />
       <Projects />
-      <section className="min-h-screen" />
+      <Coding />
       <section className="min-h-screen" />
       <section className="min-h-screen" />
       <section className="min-h-screen" />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
