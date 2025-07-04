@@ -10,9 +10,13 @@ const ProjectDetails = ({
   closeModal,
 }) => {
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center w-full h-full overflow-hidden backdrop-blur-sm">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center w-full h-full overflow-y-auto backdrop-blur-sm"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) closeModal();
+      }}>
       <motion.div
-        className="relative max-w-2xl border shadow-sm rounded-2xl bg-gradient-to-l from-midnight to-navy border-white/10"
+        className="relative max-w-2xl border shadow-sm rounded-2xl bg-gradient-to-l from-midnight to-navy border-white/10 max-h-[90vh] overflow-y-auto"
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}>
         <button
@@ -32,7 +36,7 @@ const ProjectDetails = ({
               {tags.map((tag) => (
                 <img
                   key={tag.id}
-                  src={tag.path.startsWith('/') ? tag.path : '/' + tag.path}
+                  src={tag.path.startsWith("/") ? tag.path : "/" + tag.path}
                   alt={tag.name}
                   className="rounded-lg size-10 hover-animation"
                 />
