@@ -5,11 +5,11 @@ const Coding = () => (
     <h2 className="text-heading">Problem Solving</h2>
     <div className="mt-8 mb-12 max-w-3xl text-lg text-neutral-300">
       <p className="mb-4">
-        As the Competitive Lead for the Google Developers Group (GDG) on campus,
-        I have had the privilege of fostering a vibrant coding culture. My
-        journey in this role has underscored the importance of collaboration and
-        effective communication, both within my team and the wider student
-        community.
+        As the <strong> Competitive Lead</strong> for the{" "}
+        <strong> Google Developers Group (GDG) on campus</strong>, I have had
+        the privilege of fostering a vibrant coding culture. My journey in this
+        role has underscored the importance of collaboration and effective
+        communication, both within my team and the wider student community.
       </p>
       <p className="mb-4">
         Together with my team, I have organized online workshops, hackathons,
