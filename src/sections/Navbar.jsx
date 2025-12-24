@@ -26,7 +26,7 @@ function Navigation() {
       </li>
       <li className="nav-li">
         <a
-          href="https://drive.google.com/file/d/12rWSJWDh52nsaRXfRrBOt3SaamU7WZ6Z/view?usp=sharing"
+          href="https://drive.google.com/file/d/1wMBDn461G_V4foKJWsXj4qffMfaxQg40/view?usp=sharing"
           className="nav-link border border-indigo-500 rounded-full px-4 py-1 ml-2 hover:bg-indigo-600 hover:text-white transition-colors"
           target="_blank"
           rel="noopener noreferrer">
