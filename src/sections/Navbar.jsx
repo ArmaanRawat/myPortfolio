@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion } from "motion/react";
+import { motion as Motion } from "motion/react";
 
 function Navigation() {
   return (
@@ -27,7 +27,7 @@ function Navigation() {
       <li className="nav-li">
         <a
           href="https://drive.google.com/file/d/1wMBDn461G_V4foKJWsXj4qffMfaxQg40/view?usp=sharing"
-          className="nav-link border border-indigo-500 rounded-full px-4 py-1 ml-2 hover:bg-indigo-600 hover:text-white transition-colors"
+          className="nav-link ml-1 border-black/10 bg-neutral-950 px-4 text-white shadow-sm hover:border-white/70 hover:bg-neutral-950/80 hover:text-white hover:backdrop-blur-2xl"
           target="_blank"
           rel="noopener noreferrer">
           Open Resume
@@ -40,20 +40,20 @@ function Navigation() {
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="fixed inset-x-0 z-20 w-full backdrop-blur-lg bg-primary/40">
+    <div className="fixed inset-x-0 z-20 w-full border-b border-white/50 bg-white/55 shadow-[0_10px_40px_rgba(15,23,42,0.08)] backdrop-blur-2xl">
       <div className="mx-auto c-space max-w-7xl">
         <div className="flex items-center justify-between py-2 sm:py-0">
           <a
             href="/"
-            className="text-xl font-bold transition-colors text-neutral-400 hover:text-white">
+            className="font-display text-xl font-bold text-neutral-950 transition-colors hover:text-neutral-600">
             Armaan Rawat
           </a>
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="flex cursor-pointer text-neutral-400 hover:text-white focus:outline-none sm:hidden">
+            className="flex cursor-pointer text-neutral-900 hover:text-neutral-600 focus:outline-none sm:hidden">
             <img
               src={isOpen ? "/assets/close.svg" : "/assets/menu.svg"}
-              className="w-6 h-6 "
+              className="h-6 w-6 invert"
               alt="toggle"
             />
           </button>
@@ -63,8 +63,8 @@ function Navbar() {
         </div>
       </div>
       {isOpen && (
-        <motion.div
-          className="block overflow-hidden text-center sm:hidden"
+        <Motion.div
+          className="block overflow-hidden border-t border-white/60 bg-white/80 text-center shadow-[0_18px_60px_rgba(15,23,42,0.12)] backdrop-blur-2xl sm:hidden"
           initial={{ opacity: 0, x: -10 }}
           animate={{ opacity: 1, x: 0 }}
           style={{ maxHeight: "100vh" }}
@@ -72,7 +72,7 @@ function Navbar() {
           <nav className="pb-5">
             <Navigation />
           </nav>
-        </motion.div>
+        </Motion.div>
       )}
     </div>
   );

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion as Motion } from "motion/react";
 const CopyEmailButton = () => {
   const [copied, setCopied] = useState(false);
   const email = "armaan.rawat0055@gmail.com";
@@ -13,14 +13,14 @@ const CopyEmailButton = () => {
     }, 2000);
   };
   return (
-    <motion.button
+    <Motion.button
       onClick={copyToClipboard}
       whileHover={{ y: -5 }}
       whileTap={{ scale: 1.05 }}
-      className="relative px-1 py-4 text-sm text-center rounded-full font-extralight bg-primary w-[12rem] cursor-pointer overflow-hidden">
+      className="relative w-[12rem] cursor-pointer overflow-hidden rounded-full bg-neutral-950 px-1 py-4 text-center text-sm font-semibold text-white shadow-[0_16px_30px_rgba(17,17,17,0.18)]">
       <AnimatePresence mode="wait">
         {copied ? (
-          <motion.p
+          <Motion.p
             className="flex items-center justify-center gap-2"
             key="copied"
             initial={{ opacity: 0, y: -10 }}
@@ -29,9 +29,9 @@ const CopyEmailButton = () => {
             transition={{ duration: 0.1, ease: "easeInOut" }}>
             <img src="/assets/copy-done.svg" className="w-5" alt="copy Icon" />
             Email has Copied
-          </motion.p>
+          </Motion.p>
         ) : (
-          <motion.p
+          <Motion.p
             className="flex items-center justify-center gap-2"
             key="copy"
             initial={{ opacity: 0 }}
@@ -40,10 +40,10 @@ const CopyEmailButton = () => {
             transition={{ duration: 0.1 }}>
             <img src="/assets/copy.svg" className="w-5" alt="copy icon" />
             Copy Email Address
-          </motion.p>
+          </Motion.p>
         )}
       </AnimatePresence>
-    </motion.button>
+    </Motion.button>
   );
 };
 

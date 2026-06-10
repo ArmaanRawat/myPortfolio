@@ -1,67 +1,13 @@
-import { motion, useScroll, useSpring, useTransform } from "motion/react";
 import React from "react";
 
 function ParallaxBackground() {
-  const { scrollYProgress } = useScroll();
-  const x = useSpring(scrollYProgress, { damping: 50 });
-  const mountain3Y = useTransform(x, [0, 0.5], ["0%", "70%"]);
-  const planetsX = useTransform(x, [0, 0.5], ["0%", "-20%"]);
-  const mountain2Y = useTransform(x, [0, 0.5], ["0%", "30%"]);
-  const mountain1Y = useTransform(x, [0, 0.5], ["0%", "0%"]);
-
   return (
-    <section className="absolute inset-0 bg-black/40">
-      <div className="relative h-screen overflow-y-hidden">
-        {/* Background sky */}
-        <div
-          className="absolute inset-0 w-full h-screen -z-50"
-          style={{
-            backgroundImage: "url(/assets/sky.jpg)",
-            backgroundPosition: "bottom",
-            backgroundSize: "cover",
-          }}
-        />
-        {/* mountain layer 3 */}
-        <motion.div
-          className="absolute inset-0 -z-40"
-          style={{
-            backgroundImage: "url(/assets/mountain-3.png)",
-            backgroundPosition: "bottom",
-            backgroundSize: "cover",
-            y: mountain3Y,
-          }}
-        />
-        {/* Planets */}
-        <motion.div
-          className="absolute inset-0 -z-30"
-          style={{
-            backgroundImage: "url(/assets/planets.png)",
-            backgroundPosition: "bottom",
-            backgroundSize: "cover",
-            x: planetsX,
-          }}
-        />
-        {/* mountain layer 2 */}
-        <motion.div
-          className="absolute inset-0 -z-20"
-          style={{
-            backgroundImage: "url(/assets/mountain-2.png)",
-            backgroundPosition: "bottom",
-            backgroundSize: "cover",
-            y: mountain2Y,
-          }}
-        />
-        {/* mountain layer 1 */}
-        <motion.div
-          className="absolute inset-0 -z-10"
-          style={{
-            backgroundImage: "url(/assets/mountain-1.png)",
-            backgroundPosition: "bottom",
-            backgroundSize: "cover",
-            y: mountain1Y,
-          }}
-        />
-      </div>
+    <section className="pointer-events-none absolute inset-0 overflow-hidden bg-[#f7f5ef]">
+      <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(255,255,255,0.94)_0%,rgba(247,245,239,0.9)_48%,rgba(226,239,236,0.75)_100%)]" />
+      <div className="absolute left-0 top-0 h-72 w-72 rounded-full bg-[#c9f0e8]/55 blur-3xl" />
+      <div className="absolute right-[-8rem] top-20 h-[28rem] w-[28rem] rounded-full bg-[#f2d7b6]/50 blur-3xl" />
+      <div className="absolute bottom-[-10rem] left-1/3 h-[26rem] w-[26rem] rounded-full bg-white blur-3xl" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(17,17,17,0.045)_1px,transparent_1px),linear-gradient(90deg,rgba(17,17,17,0.045)_1px,transparent_1px)] bg-[size:72px_72px] opacity-45" />
     </section>
   );
 }

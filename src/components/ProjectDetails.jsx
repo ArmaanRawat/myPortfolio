@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion as Motion } from "motion/react";
 const ProjectDetails = ({
   title,
   description,
@@ -15,8 +15,8 @@ const ProjectDetails = ({
       onClick={(e) => {
         if (e.target === e.currentTarget) closeModal();
       }}>
-      <motion.div
-        className="relative max-w-2xl border shadow-sm rounded-2xl bg-gradient-to-l from-midnight to-navy border-white/10 max-h-[90vh] overflow-y-auto"
+      <Motion.div
+        className="glass-panel-dark relative max-h-[90vh] max-w-2xl overflow-y-auto rounded-2xl"
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}>
         <button
@@ -24,12 +24,20 @@ const ProjectDetails = ({
           className="absolute p-2 rounded-sm top-5 right-5 bg-midnight hover:bg-gray-500">
           <img src="/assets/close.svg" className="w-6 h-6" />
         </button>
-        <img src={image} alt={title} className="w-full rounded-t-2xl" />
+        <div className="m-3 mb-0 overflow-hidden rounded-xl bg-white/[0.08]">
+          <img
+            src={image}
+            alt={title}
+            className="max-h-[24rem] w-full object-contain"
+          />
+        </div>
         <div className="p-5">
           <h5 className="mb-2 text-2xl font-bold text-white">{title}</h5>
           <p className="mb-3 font-normal text-neutral-400">{description}</p>
-          {subDescription.map((subDesc, index) => (
-            <p className="mb-3 font-normal text-neutral-400">{subDesc}</p>
+          {subDescription.map((subDesc) => (
+            <p key={subDesc} className="mb-3 font-normal text-neutral-400">
+              {subDesc}
+            </p>
           ))}
           <div className="flex items-center justify-between mt-4">
             <div className="flex gap-3">
@@ -62,7 +70,7 @@ const ProjectDetails = ({
             </div>
           </div>
         </div>
-      </motion.div>
+      </Motion.div>
     </div>
   );
 };

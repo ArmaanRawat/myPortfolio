@@ -1,7 +1,6 @@
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import Alert from "../components/Alert";
-import { Particles } from "../components/Particles";
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -53,80 +52,94 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="relative flex items-center c-space section-spacing">
-      <Particles
-        className="absolute inset-0 -z-50"
-        quantity={100}
-        ease={80}
-        color={"#ffffff"}
-        refresh
-      />
-      {showAlert && <Alert type={alertType} text={alertMessage} />}
-      <div className="flex flex-col items-center justify-center max-w-md p-5 mx-auto border border-white/10 rounded-2xl bg-primary">
-        <div className="flex flex-col items-start w-full gap-5 mb-10">
-          <h2 className="text-heading">Let's Talk</h2>
-          <p className="font-normal text-neutral-400">
-            Got an idea or challenge? Let's team up and make it happen. I'm open
-            to collaborations, freelance work, and new opportunities — drop me a
-            message anytime.
-          </p>
+      className="section-shell bg-[linear-gradient(180deg,#eef8f3_0%,#f7f5ef_100%)]">
+      <div className="section-inner">
+        {showAlert && <Alert type={alertType} text={alertMessage} />}
+        <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+          <div>
+            <p className="section-kicker">Contact</p>
+            <h2 className="text-heading">Let's build something refined.</h2>
+            <p className="mt-6 max-w-xl text-base leading-8 text-neutral-600">
+              Got an idea, product challenge, or collaboration in mind? Send a
+              note and I will get back with a clear next step.
+            </p>
+            <div className="mt-8 grid gap-3 sm:grid-cols-2">
+              <div className="glass-panel rounded-2xl p-5">
+                <p className="text-sm font-semibold text-neutral-500">
+                  Response
+                </p>
+                <p className="mt-1 font-display text-2xl font-semibold text-neutral-950">
+                  Fast & clear
+                </p>
+              </div>
+              <div className="glass-panel rounded-2xl p-5">
+                <p className="text-sm font-semibold text-neutral-500">
+                  Focus
+                </p>
+                <p className="mt-1 font-display text-2xl font-semibold text-neutral-950">
+                  Web products
+                </p>
+              </div>
+            </div>
+          </div>
+          <form
+            className="glass-panel w-full rounded-[1.75rem] p-5 md:p-7"
+            onSubmit={handleSubmit}>
+            <div className="mb-5">
+              <label htmlFor="name" className="field-label">
+                Full Name
+              </label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                className="field-input field-input-focus"
+                placeholder="Your name"
+                autoComplete="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="mb-5">
+              <label htmlFor="email" className="field-label">
+                Email
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                className="field-input field-input-focus"
+                placeholder="you@example.com"
+                autoComplete="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="mb-5">
+              <label htmlFor="message" className="field-label">
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                className="field-input field-input-focus"
+                placeholder="Tell me what you want to build..."
+                autoComplete="off"
+                value={formData.message}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <button
+              type="submit"
+              className="h-12 w-full cursor-pointer rounded-full bg-emerald-700 px-5 text-center text-base font-semibold text-white shadow-[0_16px_30px_rgba(4,120,87,0.22)] transition hover:-translate-y-0.5 hover:bg-emerald-800">
+              {!isLoading ? "Send Message" : "Sending..."}
+            </button>
+          </form>
         </div>
-        <form className="w-full" onSubmit={handleSubmit}>
-          <div className="mb-5">
-            <label htmlFor="name" className="feild-label">
-              Full Name
-            </label>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              className="field-input field-input-focus"
-              placeholder="Your Name"
-              autoComplete="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="mb-5">
-            <label htmlFor="email" className="feild-label">
-              Email
-            </label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              className="field-input field-input-focus"
-              placeholder="Yourmail@email.com"
-              autoComplete="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="mb-5">
-            <label htmlFor="message" className="feild-label">
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              type="text"
-              rows="4"
-              className="field-input field-input-focus"
-              placeholder="Share your thoughts..."
-              autoComplete="message"
-              value={formData.message}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <button
-            type="submit"
-            className="w-full px-1 py-3 text-lg text-center rounded-md cursor-pointer bg-radial from-lavender to-royal hover-animation">
-            {!isLoading ? "Send" : "Sending..."}
-          </button>
-        </form>
       </div>
     </section>
   );
